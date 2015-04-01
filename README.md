@@ -6,6 +6,21 @@ This project contains sample playbooks to manage Couchbase cluster.
 
 Note: the current scripts are only working on Ubuntu/Debian for now
 
+Add hosts file
+--------------
+
+Create a file called `hosts` using the example below:
+
+```
+[couchbase-main]
+node1.local
+
+[couchbase-nodes]
+node2.local
+node3.local
+```
+
+
 Install Couchbase Cluster
 --------------------------
 
