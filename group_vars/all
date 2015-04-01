@@ -1,12 +1,12 @@
 # Adminisrator user and password
 admin_user: Administrator
-admin_password: password1
+admin_password: password
 
 # ram quota for the cluster
 cluster_ram_quota: 512
 
 # bucket and replicas
-bucket_name: sample
+bucket_name: rateplans
 bucket_ram_quota: 256
 num_replicas: 2
 
