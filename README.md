@@ -35,7 +35,7 @@ Enter the Administrator information and server configuration (RAM Quotas, Bucket
 
 Run the Ansible command
 <pre>
-ansible-playbook -i ./hosts  ./couchbase.yml
+ansible-playbook -i ./hosts  ./couchbase.yml  --extra-vars "uname=username"
 </pre>
 
 
@@ -56,6 +56,6 @@ Uninstall the Couchbase server and delete all files (Warning you will lose your 
 
 Run the Ansible command
 <pre>
-ansible-playbook -i ./hosts ./couchbase-uninstall.yml
+ansible-playbook -i ./hosts ./couchbase-uninstall.yml  --extra-vars "uname=username"
 </pre>
 

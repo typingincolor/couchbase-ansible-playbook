@@ -4,8 +4,6 @@
 #
 
 - name: Couchbase Installation
-  vars_prompt:
-    uname: "username"
   hosts: all
   user: "{{uname}}"
 
@@ -29,8 +27,6 @@
     pause: seconds=20
 
 - name: Initialize the cluster and add the nodes to the cluster
-  vars_prompt:
-      uname: "username"
   hosts: couchbase-main
   user: "{{uname}}"
 
