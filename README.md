@@ -21,7 +21,7 @@ node3.local
 ```
 
 
-Install Couchbase Cluster
+Install Couchbase cluster
 --------------------------
 
 Configure the list of Hosts in host file. 
