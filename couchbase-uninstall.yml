@@ -4,7 +4,6 @@
 #
 - name: Couchbase Installation
   hosts: all
-  user: "{{uname}}"
   sudo: true
 
   tasks:
