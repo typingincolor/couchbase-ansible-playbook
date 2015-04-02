@@ -6,6 +6,7 @@
 - name: Couchbase Installation
   hosts: all
   user: "{{uname}}"
+  sudo: true
 
   tasks:
 
@@ -29,6 +30,7 @@
 - name: Initialize the cluster and add the nodes to the cluster
   hosts: couchbase-main
   user: "{{uname}}"
+  sudo: true
 
   tasks:
   - name: Configure main node

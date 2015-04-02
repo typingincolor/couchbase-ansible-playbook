@@ -5,6 +5,7 @@
 - name: Couchbase Installation
   hosts: all
   user: "{{uname}}"
+  sudo: true
 
   tasks:
   - name: Uninstall Couchbase
