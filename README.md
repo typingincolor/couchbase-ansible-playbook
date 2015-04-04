@@ -59,3 +59,16 @@ Run the Ansible command
 ansible-playbook -i ./hosts ./couchbase-uninstall.yml --user=_username_ --private-key=_location_of_pem_file
 </pre>
 
+Using with cloudformation
+-------------------------
+
+You can use [cfndsl](https://github.com/stevenjack/cfndsl) to create a cloudformation template that will setup 3 t2.small instances to run couchbase.
+
+To generate the template:
+
+<pre>
+bundle install
+bundle exec cfndsl couchbase.rb > couchbase.template 
+</pre>
+
+Then uopload the template file to cloudformation. Then run the playbook using the IP addresses given to the three instances cloudformation creates.

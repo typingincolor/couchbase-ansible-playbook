@@ -110,8 +110,17 @@ CloudFormation {
     EC2_Instance(name) {
       ImageId "ami-234ecc54"
       InstanceType "t2.small"
-      SubnetId Ref(:subnet)
-      #GroupSet Ref(:CouchbaseSecurityGroup)
+      KeyName "default"
+      Property("NetworkInterfaces",
+        [
+          {
+            "DeviceIndex" => 0,
+            "SubnetId" => Ref(:subnet),
+            "GroupSet" => [Ref(:CouchbaseSecurityGroup)],
+            "AssociatePublicIpAddress" => true
+          }
+        ]
+      )
     }
   end
 }
