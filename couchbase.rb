@@ -111,16 +111,19 @@ CloudFormation {
       ImageId "ami-234ecc54"
       InstanceType "t2.small"
       KeyName "default"
-      Property("NetworkInterfaces",
-        [
-          {
-            "DeviceIndex" => 0,
-            "SubnetId" => Ref(:subnet),
-            "GroupSet" => [Ref(:CouchbaseSecurityGroup)],
-            "AssociatePublicIpAddress" => true
-          }
-        ]
-      )
+      NetworkInterfaces([
+        NetworkInterface {
+          DeviceIndex 0
+          SubnetId Ref(:subnet)
+          GroupSet Ref(:CouchbaseSecurityGroup)
+          AssociatePublicIpAddress true
+        }
+      ])
+    }
+
+    Output("#{name}PublicIp") {
+       Description "Public IP of #{name}"
+      Value FnGetAtt( name, "PublicIp" )
     }
   end
 }

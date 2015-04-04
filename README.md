@@ -1,10 +1,23 @@
-Couchbase Ansible Playbook
-===========================
+Couchbase Ansible Playbook with added cloudformation
+====================================================
 
-This project contains sample playbooks to manage Couchbase cluster.
-
+This project contains sample playbooks to manage Couchbase cluster. It also contains code to generate a cloudformation template to deploy a couchbase cluster in AWS.
 
 Note: the current scripts are only working on Ubuntu/Debian for now
+
+Using with cloudformation
+-------------------------
+
+You can use [cfndsl](https://github.com/stevenjack/cfndsl) to create a cloudformation template that will setup 3 t2.small instances to run couchbase.
+
+To generate the template:
+
+<pre>
+bundle install
+bundle exec cfndsl couchbase.rb > couchbase.template 
+</pre>
+
+Then upload the template file to cloudformation. You can find the IP address of the instances create by looking on the `outputs` tab in cloudformation. Then run the playbook using these IP addresses.
 
 Add hosts file
 --------------
@@ -20,6 +33,7 @@ node2.local
 node3.local
 ```
 
+If using cloudformation, substitute in the IP address that the template outputs.
 
 Install Couchbase cluster
 --------------------------
@@ -59,16 +73,4 @@ Run the Ansible command
 ansible-playbook -i ./hosts ./couchbase-uninstall.yml --user=_username_ --private-key=_location_of_pem_file
 </pre>
 
-Using with cloudformation
--------------------------
 
-You can use [cfndsl](https://github.com/stevenjack/cfndsl) to create a cloudformation template that will setup 3 t2.small instances to run couchbase.
-
-To generate the template:
-
-<pre>
-bundle install
-bundle exec cfndsl couchbase.rb > couchbase.template 
-</pre>
-
-Then uopload the template file to cloudformation. Then run the playbook using the IP addresses given to the three instances cloudformation creates.
