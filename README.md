@@ -49,7 +49,7 @@ Enter the Administrator information and server configuration (RAM Quotas, Bucket
 
 Run the Ansible command
 <pre>
-ansible-playbook -i ./hosts-amazon ./couchbase.yml --user=_username_ --private-key=_location_of_pem_file
+ansible-playbook -i ./hosts-amazon ./couchbase.yml --user=_username_ --private-key=_location_of_pem_file_
 </pre>
 
 
@@ -72,5 +72,10 @@ Run the Ansible command
 <pre>
 ansible-playbook -i ./hosts ./couchbase-uninstall.yml --user=_username_ --private-key=_location_of_pem_file
 </pre>
+
+Using passwords
+---------------
+
+Ansible will let you specify the password to use by using the flags `--ask-sudo-password` and `--ask-password`
 
 
