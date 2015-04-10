@@ -70,7 +70,7 @@ Uninstall the Couchbase server and delete all files (Warning you will lose your 
 
 Run the Ansible command
 <pre>
-ansible-playbook -i ./hosts ./couchbase-uninstall.yml --user=_username_ --private-key=_location_of_pem_file
+ansible-playbook -i ./hosts ./couchbase-uninstall.yml --user=_username_ --private-key=_location_of_pem_file_
 </pre>
 
 Using passwords
